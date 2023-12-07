@@ -36,6 +36,24 @@
     height: 32%;
 }
 .button{
+    background-color: #fff; /* Cor de fundo padrão */
+    color: #333; /* Cor do texto padrão */
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s; 
     width: 100%;
     height: 100%;
+}
+.button :hover{
+    background-color: #2980b9;
+}
+.vertical{
+    width: 4%;
+    height: 100%;
+    background-color: black;
+}
+.horizontal{
+    width: 100%;
+    height: 1%;
+    background-color: black;
 }

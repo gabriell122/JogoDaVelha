@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Jogo da Velha</title>
     <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
     <div class="all">
         <div class="header">
@@ -14,31 +16,104 @@
         </div>
         <div class="fullGame">
             <div class="top">
-                <input type="button" class="button" onclick="set('1')">
+                <input type="button" class="button" name="button" onclick="set(1)" id="1">
                 <div class="vertical"></div>
-                <input type="button" class="button" onclick="set('2')">
+                <input type="button" class="button" name="button" onclick="set(2)" id="2">
                 <div class="vertical"></div>
-                <input type="button" class="button" onclick="set('3')">
+                <input type="button" class="button" name="button" onclick="set(3)" id="3">
             </div>
             <div class="horizontal"></div>
             <div class="mid">
-                <input type="button" class="button" onclick="set('4')">
+                <input type="button" class="button" name="button" onclick="set(4)" id="4">
                 <div class="vertical"></div>
-                <input type="button" class="button" onclick="set('5')">
+                <input type="button" class="button" name="button" onclick="set(5)" id="5">
                 <div class="vertical"></div>
-                <input type="button" class="button" onclick="set('6')">
+                <input type="button" class="button" name="button" onclick="set(6)" id="6">
             </div>
             <div class="horizontal"></div>
             <div class="bot">
-                <input type="button" class="button" onclick="set('7')">
+                <input type="button" class="button" name="button" onclick="set(7)" id="7">
                 <div class="vertical"></div>
-                <input type="button" class="button" onclick="set('8')">
+                <input type="button" class="button" name="button" onclick="set(8)" id="8">
                 <div class="vertical"></div>
-                <input type="button" class="button" onclick="set('9')">
+                <input type="button" class="button" name="button" onclick="set(9)" id="9">
             </div>
         </div>
     </div>
 
+    <script>
+        let player = true
+        let player1 = []
+        let player2 = []
+        let win = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+            [1, 4, 7],
+            [2, 5, 8],
+            [3, 6, 9],
+            [1, 5, 9],
+            [3, 5, 7]
+        ]
+        const set =  (e) => {
+            console.log("Jogada " + e);
+            if (player == true) {
+                document.getElementById(`${e}`).value = 'X'
+                document.getElementById(`${e}`).disabled  = true
+                player1.push(e)
+                player = !player
+                console.log("Jogador 1: " + player1);
+                
+                res =  verificaCombinacoes(player1, win)
+                if (res === true) {
+                    var botoes = document.getElementsByClassName('button');
+                    // Itera sobre a lista e desabilita cada botão
+                    for (var i = 0; i < botoes.length; i++) {
+                        botoes[i].disabled = true;
+                    }
+                    alert("O jogador 1 ganhou");
+                }
+            } else {
+                document.getElementById(`${e}`).value = 'O'
+                document.getElementById(`${e}`).disabled  = true
+                player2.push(e)
+                player = !player
+                console.log("Jogador 2: " + player2);
+                res =  verificaCombinacoes(player2, win)
+                if (res === true) {
+                    var botoes = document.getElementsByClassName('button');
+                    // Itera sobre a lista e desabilita cada botão
+                    for (var i = 0; i < botoes.length; i++) {
+                        botoes[i].disabled = true;
+                    }
+                    alert("O jogador 2 ganhou");
+                }
+            }
+        }
+        function verificaCombinacoes(array, comb) {
+            console.log(comb);
+            for (let i = 0; i < comb.length; i++) {
+                let combinacao = comb[i];
+                let encontrouComb = true;
+                for (let j = 0; j < combinacao.length; j++) {
+                    if (!array.includes(combinacao[j])) {
+                        encontrouComb = false;
+                        break;
+                    }
+                }
+                if (encontrouComb) {
+                    return true; // Encontrou uma combinação
+                }
+            }
+            return false; // Não encontrou nenhuma combinação
+        }
+
+
+
+
+
+    </script>
 
 </body>
+
 </html>
