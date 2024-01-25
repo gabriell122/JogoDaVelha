@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="body">
+        <div class="dTitle">
+            Jogo da Velha
+        </div>
+        <div class="dPlacar">
+            0 X 0
+        </div>
+        <div class="dGame">
+            <div class="dLine">
+                <input type="button" class="buttonGame" onclick="Press(1)" id="1">
+                <input type="button" class="buttonGame" onclick="Press(2)" id="2">
+                <input type="button" class="buttonGame" onclick="Press(3)" id="3">
+            </div>
+            <div class="dLine">
+                <input type="button" class="buttonGame" onclick="Press(4)" id="4">
+                <input type="button" class="buttonGame" onclick="Press(5)" id="5">
+                <input type="button" class="buttonGame" onclick="Press(6)" id="6">
+            </div>
+            <div class="dLine">
+                <input type="button" class="buttonGame" onclick="Press(7)" id="7">
+                <input type="button" class="buttonGame" onclick="Press(8)" id="8">
+                <input type="button" class="buttonGame" onclick="Press(9)" id="9">
+            </div>
+        </div>
+        <div class="dButton">
+            <input type="button" value="Novo Jogo" class="newGame" onclick="NewGame()">
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
