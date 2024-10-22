@@ -38,6 +38,10 @@ const Validar = (e)=>{
     }
 }
 
+const BotBolado = ()=>{
+    // se 5 => 1 senao 5
+}
+
 
 // Faz uma Jogada Random
 const JogadaRandom = ()=>{
